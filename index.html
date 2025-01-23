@@ -1,277 +1,229 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date?</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Date?</title>
+<link rel="stylesheet" href="style.css">
 
-    
-    <style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@1,300&family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap');
 
-        @import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@1,300&family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap');
-
-        *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Bellota Text', sans-serif;
-    
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Bellota Text', sans-serif;
 }
-body, html{
+
+body, html {
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://img.freepik.com/free-vector/cloud-background-vector-cute-desktop-wallpaper_53876-136885.jpg?w=826&t=st=1704789857~exp=1704790457~hmac=381926ab355f58892a476af4dd9c1b104192572bd7b1a38ac49528094d2ec6ce");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-button {
+  position: absolute;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff9800;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.play-button:hover {
+  background-color: #e68900;
+}
+
+.confirmation, .container {
+  display: none;
+  text-align: center;
+}
+
+.container {
+  width: 400px;
+  height: 500px;
+}
+
+.container h1 {
+  margin-bottom: 20px;
+  margin-top: 50px;
+  font-size: 50px;
+  font-weight: 700;
+  text-shadow: 0px 3px 6px rgb(147, 77, 77);
+}
+
+.gif {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+}
+
+.gifimg {
+  border-radius: 10px;
+  width: 384px;
+  height: 254px;
+  background-image: url("https://media1.tenor.com/m/UAFrdZCt29YAAAAC/milk-and-mocha-waiting-for-reply.gif");
+  background-size: cover;
+}
+
+.answer-box {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+  margin-top: 5px;
+  width: 100%;
+  height: 80px;
+  gap: 50px;
+}
+
+.answer {
+  border: none;
+  width: 100px;
+  height: 50px;
+  font-size: 30px;
+  border-radius: 10px;
+  background: none;
+  backdrop-filter: blur(5px);
+  border: 1px solid black;
+  font-weight: 550;
+}
+
+.answer:hover {
+  box-shadow: inset 0px 3px 6px rgba(0, 0, 0, 0.449);
+}
+
+.confirmation h1 {
+  font-size: 50px;
+  font-weight: 700;
+  text-shadow: 0px 3px 6px rgb(147, 77, 77);
+  line-height: 90px;
+}
+
+#fix {
+  margin-top: 30px;
+  border: none;
+  width: 400px;
+  height: 50px;
+  font-size: 30px;
+  border-radius: 10px;
+  background: none;
+  backdrop-filter: blur(5px);
+  border: 1px solid black;
+  font-weight: 550;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
     width: 100%;
-    height: 100vh;
-    background-image: url("https://img.freepik.com/free-vector/cloud-background-vector-cute-desktop-wallpaper_53876-136885.jpg?w=826&t=st=1704789857~exp=1704790457~hmac=381926ab355f58892a476af4dd9c1b104192572bd7b1a38ac49528094d2ec6ce");
+  }
 
-    background-size:cover;
-}
+  .container h1 {
+    margin-top: 20px;
+    font-size: 35px;
+  }
 
-.confirmation{
-    display: none;
-    width: 400px;
-    height: 500px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    text-align: center;
-    /* padding-top: 50px; */
-}
+  .answer {
+    font-size: 20px;
+    padding: 5px;
+  }
 
-.confirmation h1{
-    font-style: bolder;
-    font-size: 50px;
-    font-weight: 700;
-    text-shadow: 0px 3px 6px rgb(147, 77, 77);
-    line-height: 90px;
-}
+  .gifimg {
+    width: 300px;
+    height: 198px;
+  }
 
-.fix-gif{
+  .fix-gifimg {
+    width: 300px;
+    height: 168px;
+  }
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:100%;
-    height: 200px;
-    
-
-}
-
-.fix-gifimg{
-    border-radius: 10px;
-    width: 384px;
-    height: 216px;
-    background-image: url("https://media1.tenor.com/m/2VprHA868S8AAAAC/yummy-desserts-desserts-milk-mocha.gif");
-    background-size: cover; 
-}
-
-.container h1{
-    margin-bottom: 20px;
-    margin-top: 50px;
-    font-style: bolder;
-    font-size: 50px;
-    font-weight: 700;
-    text-shadow: 0px 3px 6px rgb(147, 77, 77);
-}
-
-#fix{
-    margin-top: 30px;
-        border: none;
-        width: 400px;
-        height: 50px;
-        font-size: 30px;
-        border-radius: 10px;
-        background: none;
-        backdrop-filter: blur(5px);
-        border: 1px solid black;
-        font-weight: 550;
-}
-.container{
-    width: 400px;
-    height: 500px;
-    position: absolute;
-    left: 50%;
-    top: 40%;
-    transform: translate(-50%,-50%);
-    text-align: center;
-    
-}
-
-.gif{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:100%;
-    height: 300px;
-    
-
-}
-
-.gifimg{
-    border-radius: 10px;
-    width: 384px;
-    height: 254px;
-    background-image: url("https://media1.tenor.com/m/UAFrdZCt29YAAAAC/milk-and-mocha-waiting-for-reply.gif");
-    background-size: cover; 
-}
-
-.answer-box{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    /* background-color: black; */
-    padding: 10px;
-    margin-top: 5px;
-    width: 100%;
-    height: 80px;
-    gap: 50px;
-}
-
-.answer{
-    border: none;
-    width: 100px;
+  #fix {
+    width: 250px;
     height: 50px;
     font-size: 30px;
-    border-radius: 10px;
-    background: none;
-    backdrop-filter: blur(5px);
-    border: 1px solid black;
-    font-weight: 550;
-    
+  }
 }
-.answer:hover{
-    box-shadow: inset 0px 3px 6px rgba(0, 0, 0, 0.449);
-}
-
-@media screen and (max-width: 600px){
-    .container{
-        width: 100%;
-    }
-    .container h1{
-        margin-top: 20px;
-        padding: 8px;
-        font-size: 35px;
-    }
-    .answer{
-        font-size: 20px;
-        padding: 5px;
-    }
-    .gifimg{
-        border-radius: 10px;
-        width: 300px;
-        height: 198px;
-        background-image: url("https://media1.tenor.com/m/UAFrdZCt29YAAAAC/milk-and-mocha-waiting-for-reply.gif");
-        background-size: cover; 
-    }
-    .fix-gif{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width:100%;
-        height: 200px;
-        
-    
-    }
-    
-    .fix-gifimg{
-        border-radius: 10px;
-        width: 300px;
-        height: 168px;
-        background-image: url("https://media1.tenor.com/m/2VprHA868S8AAAAC/yummy-desserts-desserts-milk-mocha.gif");
-        background-size: cover; 
-    }
-
-    #fix{
-        margin-top: 30px;
-            border: none;
-            width: 250px;
-            height: 50px;
-            font-size: 30px;
-            border-radius: 10px;
-            background: none;
-            backdrop-filter: blur(5px);
-            border: 1px solid black;
-            font-weight: 550;
-    }
-
-    .confirmation{
-        display: none;
-        width: 100%;
-        height: 500px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
-        text-align: center;
-    }
-}
-
-    
-    </style>
-    </style>
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="question">
-            <h1>Kya tum mujhse milne aaogi?</h1>
-            <h2>Mujhe vitamin A ki deficiency ho rhi h?</h2>
-        </div>
-        <div class="gif">
-            <div class="gifimg"></div>
-        </div>
-        <div class="answer-box">
-                <button class="answer" id="yes">Yes!!!</button>
-                <button class="answer" id="no">No</button>
-        </div>
-        
-    </div>
 
-    <div class="confirmation">
-        <h1>Yayyyyyyyy!!! Thankkk Youuu Chammak Challo</h1>
-            <div class="question">
-                <div class="fix-gif">
-                    <div class="fix-gifimg"></div>
-                </div>
-                <!-- <a href="https://wa.me/+919140099279?text='Theek h kal milte h' ">
-                </a> -->
-                    <button class="answer" id="fix">Toh kal aaogi?</button>
-                
-            </div>
-    </div>
+<!-- Background Music -->
+<audio id="backgroundMusic" loop>
+  <source src="Song.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
 
-    </div>
+<!-- Play Music Button -->
+<button class="play-button" id="playMusic">Play Music</button>
 
-    <script>
-        const yes = document.querySelector("#yes");
+<!-- Content that will load after clicking the Play Music button -->
+<div class="container">
+  <h1>Kya tum kal mujhse milne aaogi?</h1>
+  <h2>Mujhe vitamin A ki deficiency si ho rhi h?</h2>
+  <div class="gif">
+    <div class="gifimg"></div>
+  </div>
+  <div class="answer-box">
+    <button class="answer" id="yes">Yes!!!</button>
+    <button class="answer" id="no">No</button>
+  </div>
+</div>
+
+<div class="confirmation">
+  <h1>Yayyyyyyyy!!! Thankkk Youuu Chammak Challo</h1>
+  <div class="fix-gif">
+    <div class="fix-gifimg"></div>
+  </div>
+  <button class="answer" id="fix">Click here to tell me you will come tomorrow</button>
+</div>
+
+<script>
+const yes = document.querySelector("#yes");
 const no = document.querySelector("#no");
 const confirmation = document.querySelector(".confirmation");
 const container = document.querySelector(".container");
+const backgroundMusic = document.getElementById("backgroundMusic");
+const playMusicButton = document.getElementById("playMusic");
 
 yesAnswerMethod = () => {
-    container.style.display = 'none'
-    confirmation.style.display = 'block'
-}
+  container.style.display = 'none';
+  confirmation.style.display = 'block';
+};
 
 noAnswerMethod = () => {
-    no.style.position = 'absolute'
+  no.style.position = 'absolute';
+  const xPosition = Math.floor(Math.random() * container.clientWidth);
+  const yPosition = Math.floor(Math.random() * container.clientHeight);
+  no.style.top = `${yPosition}px`;
+  no.style.left = `${xPosition}px`;
+};
 
-    xPosition = Math.floor(Math.random() * container.clientWidth)
-    yPosition = Math.floor(Math.random() * container.clientHeight)
+no.addEventListener('click', noAnswerMethod);
+yes.addEventListener('click', yesAnswerMethod);
 
-    no.style.top = `${yPosition}px`
-    no.style.left = `${xPosition}px`
+// Play music on button click and show the content
+playMusicButton.addEventListener('click', () => {
+  backgroundMusic.play();
+  playMusicButton.style.display = 'none';  // Hide the Play Music button
+  container.style.display = 'block';  // Show the rest of the content
+});
 
-}
-
-no.addEventListener('click', noAnswerMethod)
-yes.addEventListener('click', yesAnswerMethod)
-
-document.getElementById("fix").addEventListener("click", function(){
-    window.location= "https://wa.me/+919140099279?text=Mujhe bhi Vitamin D ki jarurat si lg rhi h, aaungi kal ";
+document.getElementById("fix").addEventListener("click", function () {
+  window.location = "https://wa.me/+919140099279?text=Mujhe%20bhi%20Vitamin%20D%20ki%20deficiency%20si%20lg%20rhi%20h%2C%20aaungi%20kal";
 }, false);
-    </script>
-    
+</script>
+
 </body>
-</html> 
+</html>
